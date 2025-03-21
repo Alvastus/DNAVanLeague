@@ -1,122 +1,151 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #fff4eb;
-  }
-  
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    background-color: #124E66;
-    color: rgb(222, 0, 0);
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fff4eb;
+}
 
-  header nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-  }
-  
-  header nav ul li {
-    margin-left: 2rem;
-  }
-  
-  header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  main {
-    padding: 2rem;
-  }
-  
-  .cover {
-    background: #050200;
-    color:white;
-    padding: 2rem;
-    text-align: center;
-    padding: 1rem;
-  }
-  
-  .content {
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #124E66;
+  color: rgb(222, 0, 0);
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  margin-left: 2rem;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: rgb(222, 0, 0);
+}
+
+main {
+  padding: 2rem;
+}
+
+.cover {
+  background: #D3D9D4;
+  color: black;
+  padding: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+  gap: 2rem;
+  margin-top: 2rem;
+  color: inherit;
+}
+.results {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
     color: inherit;
-  }
+}
 
-  .card {
-    background-color: #D3D9D4;
-    padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
+.card {
+  background-color: #D3D9D4;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%; /* Consistent width */
+  min-height: 250px; /* Ensures all cards maintain the same height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+}
+
+footer {
+  background-color: #8E8D8A;
+  color: black;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .content {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards per row on medium screens */
   }
-  
-  .card h2 {
-    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+  .content {
+      grid-template-columns: 1fr; /* 1 card per row on small screens */
   }
-  
-  footer {
-    background-color: #8E8D8A;
-    color: black;
-    text-align: center;
-    padding: 1rem;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-  }
-  @media screen and (max-width: 768px) {
-    header nav ul {
+}
+
+@media screen and (max-width: 768px) {
+  header nav ul {
       flex-direction: column;
       align-items: center;
-    }
-    .content {
-      grid-template-columns: 1fr;
-    }
+  }
   
-    .cover h1 {
+  .cover h1 {
       font-size: 1.5rem;
-    }
   }
-  
-  @media screen and (max-width: 480px) {
-    .cover h1 {
+}
+
+@media screen and (max-width: 480px) {
+  .cover h1 {
       font-size: 1.2rem;
-    }
-  
-    header nav ul li {
+  }
+
+  header nav ul li {
       margin: 1rem 0;
-    }
-  
-    footer {
+  }
+
+  footer {
       font-size: 0.8rem;
-    }
   }
-  * {box-sizing:border-box}
+}
 
-  .row > .column {
-    padding: 0 8px;
-  }
-  
-  .row {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-  }
+* { box-sizing: border-box; }
 
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
+.row > .column {
+  padding: 0 8px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Ensuring 3 columns per row */
+  gap: 1rem;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Table Styling */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -153,9 +182,10 @@ td {
   color: black;
 }
 
+/* Banner Card Styling */
 .banner-card {
   text-decoration: none;
-  color: inherit; /* Inherit text color from parent */
+  color: inherit;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -181,13 +211,25 @@ td {
 .banner-container {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* Spacing between the banners */
+  gap: 16px;
 }
 
 /* Responsive design: Stack banners and adjust layout on smaller screens */
 @media (max-width: 768px) {
   .banner-card {
-    flex-direction: column;
-    align-items: flex-start;
+      flex-direction: column;
+      align-items: flex-start;
+  }
+}
+
+a:link, a:visited {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .results table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 }
